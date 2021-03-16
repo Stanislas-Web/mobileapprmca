@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: GetMaterialApp(
-        title: 'Ufm',
+        title: 'RMCA',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: MyColors.navy,

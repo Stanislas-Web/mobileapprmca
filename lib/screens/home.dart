@@ -173,6 +173,7 @@ class _MyHomePageState extends State<MyHomePage>
                 'assets/icons/menu.svg',
                 height: getProportionateScreenWidth(15),
                 width: getProportionateScreenWidth(15),
+                color: Colors.white,
               ),
               onPressed: () {
                 print("top top");
