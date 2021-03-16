@@ -86,53 +86,117 @@ class _RouteStackState extends State<RouteStack> {
             ),
                   floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFF035887),
         // child: const Icon(Icons.add),
         child: Player(),
         onPressed: () {
           // Overlay.of(context).insert(entry);
         },
       ),
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        notchMargin: 4.0,
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-          GestureDetector(
-            onTap: (){
-               _onItemTapped(0);
-            },
-                      child: Padding(
-              padding: EdgeInsets.symmetric(vertical:getProportionateScreenWidth(20),horizontal: getProportionateScreenWidth(30) ),
-                        child: SvgPicture.asset(
-                  'assets/icons/home.svg',
-                  height: _selectedIndex == 0 ? 20.0 : 15,
-                  width: _selectedIndex == 0 ? 20.0 : 15,
-                  color: _selectedIndex == 0
-                      ? Color(0xFF262F56)
-                      : Color(0xFF262F56).withOpacity(.5),
-                ),
-            ),
-          ),  
-                    GestureDetector(
-            onTap: (){
-               _onItemTapped(1);
-            },
-                      child: Padding(
-              padding: EdgeInsets.symmetric(vertical:getProportionateScreenWidth(20),horizontal: getProportionateScreenWidth(30) ),
-                        child: SvgPicture.asset(
-                  'assets/icons/recherche.svg',
-                  height: _selectedIndex == 1 ? 20.0 : 15,
-                  width: _selectedIndex == 1 ? 20.0 : 15,
-                  color: _selectedIndex == 1
-                      ? Color(0xFF262F56)
-                      : Color(0xFF262F56).withOpacity(.5),
-                ),
-            ),
-          ), 
-          ],
+      bottomNavigationBar: ClipRRect(
+                          borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(50.0),
+                        topRight: Radius.circular(50.0)),
+          
+        
+              child: BottomAppBar(
+                color:Color(0xFF035887),
+          shape: CircularNotchedRectangle(),
+          notchMargin: 4.0,
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+                      GestureDetector(
+              onTap: (){
+                 _onItemTapped(0);
+              },
+                        child: Padding(
+                padding: EdgeInsets.symmetric(vertical:getProportionateScreenWidth(10),horizontal: getProportionateScreenWidth(30) ),
+                          child: Stack(
+                                                      children:[
+Padding(
+  padding: EdgeInsets.all(15),
+  child:   SvgPicture.asset(
+  
+                      'assets/icons/home.svg',
+  
+                    height: _selectedIndex == 0 ? 15.0 : 15,
+  
+                      width: _selectedIndex == 0 ? 15.0 : 15,
+  
+                      color: _selectedIndex == 0
+  
+                          ? Color(0xFFFFFFFF)
+  
+                          : Color(0xFFFFFFFF).withOpacity(.5),
+  
+                    ),
+),
+                          _selectedIndex == 0?
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(width:60 ,height: 3,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                       borderRadius: BorderRadius.circular(10),
+                    ),
+                    
+                    ),
+                    ):Container(height: 1,width: 1,)
+
+                                                      ]
+                          ),
+              ),
+            ),  
+                      GestureDetector(
+              onTap: (){
+                 _onItemTapped(1);
+              },
+                        child: Padding(
+                padding: EdgeInsets.symmetric(vertical:getProportionateScreenWidth(10),horizontal: getProportionateScreenWidth(30) ),
+                          child: Stack(
+                                                      children:[
+Padding(
+  padding: EdgeInsets.all(15),
+  child:   SvgPicture.asset(
+  
+                      'assets/icons/recherche.svg',
+  
+                    height: _selectedIndex == 0 ? 15.0 : 15,
+  
+                      width: _selectedIndex == 0 ? 15.0 : 15,
+  
+                      color: _selectedIndex == 1
+  
+                          ? Color(0xFFFFFFFF)
+  
+                          : Color(0xFFFFFFFF).withOpacity(.5),
+  
+                    ),
+),
+                          _selectedIndex == 1?
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(width:60 ,height: 3,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                       borderRadius: BorderRadius.circular(10),
+                    ),
+                    
+                    ),
+                    ):Container(height: 1,width: 1,)
+
+                                                      ]
+                          ),
+              ),
+            ), 
+            ],
+          ),
         ),
       ),)
       //             floatingActionButton: FloatingActionButton(
@@ -148,7 +212,7 @@ class _RouteStackState extends State<RouteStack> {
                 backgroundColor: Colors.white,
                 body: Center(
                   child: SpinKitRipple(
-                    color: Color(0xFFFFEB3B),
+                    color: Color(0xFF035887),
                     size: 100,
                   ),
                 ),
@@ -276,7 +340,7 @@ Widget bottomNavigationBar(_selectedIndex, _onItemTapped) {
                 new Text('Favoris', style: TextStyle(color: Color(0xFF262F56))),
             icon: SvgPicture.asset(
               'assets/icons/heart-icon.svg',
-              height: _selectedIndex == 3 ? 20.0 : 15,
+              height: 2 == 3 ? 20.0 : 15,
               width: _selectedIndex == 3 ? 20.0 : 15,
               color: _selectedIndex == 3
                   ? Color(0xFF262F56)

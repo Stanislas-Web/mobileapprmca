@@ -55,6 +55,7 @@ class _RechercheState extends State<Recherche> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor:Color(0xFF035887),
         elevation: 0,
         // actions: [
         //   IconButton(

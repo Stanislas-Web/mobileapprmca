@@ -164,6 +164,7 @@ class _MyHomePageState extends State<MyHomePage>
       // drawerEdgeDragWidth: 0,
       key: _scaffoldKey,
       appBar: AppBar(
+        backgroundColor:Color(0xFF035887),
         elevation: 0,
         automaticallyImplyLeading: false,
         actions: [
@@ -204,9 +205,9 @@ class _MyHomePageState extends State<MyHomePage>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Header(data: _imgs),
-                SizedBox(
-                  height: getProportionateScreenWidth(10),
-                ),
+                // SizedBox(
+                //   height: getProportionateScreenWidth(10),
+                // ),
                 Expanded(
                   child: SingleChildScrollView(
                     controller: _controller,
@@ -258,55 +259,58 @@ Widget drawerMenu(context, size, _launchURL, isAuth, userData, googleAuth,
   return new Drawer(
     child: new ListView(
       children: <Widget>[
-        Container(
-          margin: EdgeInsets.only(
-            left: getProportionateScreenWidth(20),
-            bottom: getProportionateScreenWidth(20),
-          ),
-          height: getProportionateScreenWidth(150),
-          decoration: BoxDecoration(
-              color: Color(0xFFFFEB3B),
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(
-                  getProportionateScreenWidth(30),
-                ),
-              )),
-          child: Column(
-            children: [
-              isAuth == false
-                  ? Container()
-                  : Container(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: getProportionateScreenWidth(20),
-                            vertical: 30),
-                        child: Container(
-                          child: Row(
-                            children: [
-                              CircleAvatar(
-                                backgroundImage: CachedNetworkImageProvider(
-                                    userData.photoURL),
-                                radius: 40,
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  left: getProportionateScreenWidth(10),
-                                ),
-                              ),
-                              Text(
-                                userData.displayName,
-                                style: TextStyle(
-                                  color: Color(0xFF000000),
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-            ],
-          ),
+        // Container(
+        //   margin: EdgeInsets.only(
+        //     left: getProportionateScreenWidth(20),
+        //     bottom: getProportionateScreenWidth(20),
+        //   ),
+        //   height: getProportionateScreenWidth(150),
+        //   decoration: BoxDecoration(
+        //       color: Color(0xFFFFEB3B),
+        //       borderRadius: BorderRadius.only(
+        //         bottomLeft: Radius.circular(
+        //           getProportionateScreenWidth(30),
+        //         ),
+        //       )),
+        //   child: Column(
+        //     children: [
+        //       isAuth == false
+        //           ? Container()
+        //           : Container(
+        //               child: Padding(
+        //                 padding: EdgeInsets.symmetric(
+        //                     horizontal: getProportionateScreenWidth(20),
+        //                     vertical: 30),
+        //                 child: Container(
+        //                   child: Row(
+        //                     children: [
+        //                       CircleAvatar(
+        //                         backgroundImage: CachedNetworkImageProvider(
+        //                             userData.photoURL),
+        //                         radius: 40,
+        //                       ),
+        //                       Padding(
+        //                         padding: EdgeInsets.only(
+        //                           left: getProportionateScreenWidth(10),
+        //                         ),
+        //                       ),
+        //                       Text(
+        //                         userData.displayName,
+        //                         style: TextStyle(
+        //                           color: Color(0xFF000000),
+        //                           fontWeight: FontWeight.w300,
+        //                         ),
+        //                       )
+        //                     ],
+        //                   ),
+        //                 ),
+        //               ),
+        //             ),
+        //     ],
+        //   ),
+        // ),
+        SizedBox(
+          height: getProportionateScreenHeight(40),
         ),
         Container(
           margin: EdgeInsets.only(
