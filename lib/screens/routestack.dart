@@ -37,8 +37,7 @@ class _RouteStackState extends State<RouteStack> {
     initial();
   }
 
-    void initial() async {
-
+  void initial() async {
     setState(() {
       theme = prefs.getString('theme');
     });
@@ -79,7 +78,7 @@ class _RouteStackState extends State<RouteStack> {
     });
   }
 
-  List<Widget> _screens = [MyHomePage(),Recherche(), Profil(), Favoris()];
+  List<Widget> _screens = [MyHomePage(), Recherche(), Profil(), Favoris()];
 
   void _onItemTapped(int index) {
     pageController.jumpToPage(index);
@@ -97,129 +96,123 @@ class _RouteStackState extends State<RouteStack> {
               children: _screens,
               physics: NeverScrollableScrollPhysics(),
             ),
-                  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF035887),
-        // child: const Icon(Icons.add),
-        child: Player(),
-        onPressed: () {
-          // Overlay.of(context).insert(entry);
-        },
-      ),
-      bottomNavigationBar: ClipRRect(
-                          borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(50.0),
-                        topRight: Radius.circular(50.0)),
-          
-        
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: Color(0xFF035887),
+              // child: const Icon(Icons.add),
+              child: Player(),
+              onPressed: () {
+                // Overlay.of(context).insert(entry);
+              },
+            ),
+            bottomNavigationBar: ClipRRect(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(50.0),
+                  topRight: Radius.circular(50.0)),
               child: BottomAppBar(
-                color:Color(0xFF035887),
-          shape: CircularNotchedRectangle(),
-          notchMargin: 4.0,
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-                      GestureDetector(
-              onTap: (){
-                 _onItemTapped(0);
-              },
-                        child: Padding(
-                padding: EdgeInsets.symmetric(vertical:getProportionateScreenWidth(10),horizontal: getProportionateScreenWidth(30) ),
-                          child: Stack(
-                                                      children:[
-Padding(
-  padding: EdgeInsets.all(15),
-  child:   SvgPicture.asset(
-  
-                      'assets/icons/home.svg',
-  
-                    height: _selectedIndex == 0 ? 15.0 : 15,
-  
-                      width: _selectedIndex == 0 ? 15.0 : 15,
-  
-                      color: _selectedIndex == 0
-  
-                          ? Color(0xFFFFFFFF)
-  
-                          : Color(0xFFFFFFFF).withOpacity(.5),
-  
-                    ),
-),
-                          _selectedIndex == 0?
-                  Positioned(
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    child: Container(width:60 ,height: 3,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                       borderRadius: BorderRadius.circular(10),
-                    ),
-                    
-                    ),
-                    ):Container(height: 1,width: 1,)
-
-                                                      ]
+                color: Color(0xFF035887),
+                shape: CircularNotchedRectangle(),
+                notchMargin: 4.0,
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    GestureDetector(
+                      onTap: () {
+                        _onItemTapped(0);
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: getProportionateScreenWidth(10),
+                            horizontal: getProportionateScreenWidth(30)),
+                        child: Stack(children: [
+                          Padding(
+                            padding: EdgeInsets.all(15),
+                            child: SvgPicture.asset(
+                              'assets/icons/home.svg',
+                              height: _selectedIndex == 0 ? 15.0 : 15,
+                              width: _selectedIndex == 0 ? 15.0 : 15,
+                              color: _selectedIndex == 0
+                                  ? Color(0xFFFFFFFF)
+                                  : Color(0xFFFFFFFF).withOpacity(.5),
+                            ),
                           ),
-              ),
-            ),  
-                      GestureDetector(
-              onTap: (){
-                 _onItemTapped(1);
-              },
-                        child: Padding(
-                padding: EdgeInsets.symmetric(vertical:getProportionateScreenWidth(10),horizontal: getProportionateScreenWidth(30) ),
-                          child: Stack(
-                                                      children:[
-Padding(
-  padding: EdgeInsets.all(15),
-  child:   SvgPicture.asset(
-  
-                      'assets/icons/recherche.svg',
-  
-                    height: _selectedIndex == 0 ? 15.0 : 15,
-  
-                      width: _selectedIndex == 0 ? 15.0 : 15,
-  
-                      color: _selectedIndex == 1
-  
-                          ? Color(0xFFFFFFFF)
-  
-                          : Color(0xFFFFFFFF).withOpacity(.5),
-  
+                          _selectedIndex == 0
+                              ? Positioned(
+                                  bottom: 0,
+                                  left: 0,
+                                  right: 0,
+                                  child: Container(
+                                    width: 60,
+                                    height: 3,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                )
+                              : Container(
+                                  height: 1,
+                                  width: 1,
+                                )
+                        ]),
+                      ),
                     ),
-),
-                          _selectedIndex == 1?
-                  Positioned(
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    child: Container(width:60 ,height: 3,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                       borderRadius: BorderRadius.circular(10),
-                    ),
-                    
-                    ),
-                    ):Container(height: 1,width: 1,)
-
-                                                      ]
+                    GestureDetector(
+                      onTap: () {
+                        _onItemTapped(1);
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: getProportionateScreenWidth(10),
+                            horizontal: getProportionateScreenWidth(30)),
+                        child: Stack(children: [
+                          Padding(
+                            padding: EdgeInsets.all(15),
+                            child: SvgPicture.asset(
+                              'assets/icons/recherche.svg',
+                              height: _selectedIndex == 0 ? 15.0 : 15,
+                              width: _selectedIndex == 0 ? 15.0 : 15,
+                              color: _selectedIndex == 1
+                                  ? Color(0xFFFFFFFF)
+                                  : Color(0xFFFFFFFF).withOpacity(.5),
+                            ),
                           ),
+                          _selectedIndex == 1
+                              ? Positioned(
+                                  bottom: 0,
+                                  left: 0,
+                                  right: 0,
+                                  child: Container(
+                                    width: 60,
+                                    height: 3,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                )
+                              : Container(
+                                  height: 1,
+                                  width: 1,
+                                )
+                        ]),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ), 
-            ],
-          ),
-        ),
-      ),)
-      //             floatingActionButton: FloatingActionButton(
-      //   child: Container(alignment: Alignment.center,
-      //   child: Player(),)
-      // ),
-      
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      //       bottomNavigationBar:
-      //           bottomNavigationBar(_selectedIndex, _onItemTapped))
+            ),
+          )
+        //             floatingActionButton: FloatingActionButton(
+        //   child: Container(alignment: Alignment.center,
+        //   child: Player(),)
+        // ),
+
+        // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        //       bottomNavigationBar:
+        //           bottomNavigationBar(_selectedIndex, _onItemTapped))
         : _tryAgain == true
             ? Scaffold(
                 backgroundColor: Colors.white,
@@ -304,62 +297,60 @@ Padding(
 
 Widget bottomNavigationBar(_selectedIndex, _onItemTapped) {
   return BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xFF0083CC),
-        selectedItemColor: Color(0xFFFFFFFF),
-        unselectedItemColor: Color(0xFF262F56).withOpacity(.5),
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            title: new Text('Home', style: TextStyle(color: Color(0xFF262F56))),
-            icon: SvgPicture.asset(
-              'assets/icons/home.svg',
-              height: _selectedIndex == 0 ? 20.0 : 15,
-              width: _selectedIndex == 0 ? 20.0 : 15,
-              color: _selectedIndex == 0
-                  ? Color(0xFF262F56)
-                  : Color(0xFF262F56).withOpacity(.5),
-            ),
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: Color(0xFF0083CC),
+      selectedItemColor: Color(0xFFFFFFFF),
+      unselectedItemColor: Color(0xFF262F56).withOpacity(.5),
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      currentIndex: _selectedIndex,
+      onTap: _onItemTapped,
+      items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          title: new Text('Home', style: TextStyle(color: Color(0xFF262F56))),
+          icon: SvgPicture.asset(
+            'assets/icons/home.svg',
+            height: _selectedIndex == 0 ? 20.0 : 15,
+            width: _selectedIndex == 0 ? 20.0 : 15,
+            color: _selectedIndex == 0
+                ? Color(0xFF262F56)
+                : Color(0xFF262F56).withOpacity(.5),
           ),
-          BottomNavigationBarItem(
-            title:
-                new Text('Profil', style: TextStyle(color: Color(0xFF262F56))),
-            icon: SvgPicture.asset(
-              'assets/icons/profil.svg',
-              height: _selectedIndex == 1 ? 20.0 : 15,
-              width: _selectedIndex == 1 ? 20.0 : 15,
-              color: _selectedIndex == 1
-                  ? Color(0xFF262F56)
-                  : Color(0xFF262F56).withOpacity(.5),
-            ),
+        ),
+        BottomNavigationBarItem(
+          title: new Text('Profil', style: TextStyle(color: Color(0xFF262F56))),
+          icon: SvgPicture.asset(
+            'assets/icons/profil.svg',
+            height: _selectedIndex == 1 ? 20.0 : 15,
+            width: _selectedIndex == 1 ? 20.0 : 15,
+            color: _selectedIndex == 1
+                ? Color(0xFF262F56)
+                : Color(0xFF262F56).withOpacity(.5),
           ),
-          BottomNavigationBarItem(
-            title: new Text('Recherche',
-                style: TextStyle(color: Color(0xFF262F56))),
-            icon: SvgPicture.asset(
-              'assets/icons/recherche.svg',
-              height: _selectedIndex == 2 ? 20.0 : 15,
-              width: _selectedIndex == 2 ? 20.0 : 15,
-              color: _selectedIndex == 2
-                  ? Color(0xFF262F56)
-                  : Color(0xFF262F56).withOpacity(.5),
-            ),
+        ),
+        BottomNavigationBarItem(
+          title:
+              new Text('Recherche', style: TextStyle(color: Color(0xFF262F56))),
+          icon: SvgPicture.asset(
+            'assets/icons/recherche.svg',
+            height: _selectedIndex == 2 ? 20.0 : 15,
+            width: _selectedIndex == 2 ? 20.0 : 15,
+            color: _selectedIndex == 2
+                ? Color(0xFF262F56)
+                : Color(0xFF262F56).withOpacity(.5),
           ),
-          BottomNavigationBarItem(
-            title:
-                new Text('Favoris', style: TextStyle(color: Color(0xFF262F56))),
-            icon: SvgPicture.asset(
-              'assets/icons/heart-icon.svg',
-              height: 2 == 3 ? 20.0 : 15,
-              width: _selectedIndex == 3 ? 20.0 : 15,
-              color: _selectedIndex == 3
-                  ? Color(0xFF262F56)
-                  : Color(0xFF262F56).withOpacity(.5),
-            ),
+        ),
+        BottomNavigationBarItem(
+          title:
+              new Text('Favoris', style: TextStyle(color: Color(0xFF262F56))),
+          icon: SvgPicture.asset(
+            'assets/icons/heart-icon.svg',
+            height: 2 == 3 ? 20.0 : 15,
+            width: _selectedIndex == 3 ? 20.0 : 15,
+            color: _selectedIndex == 3
+                ? Color(0xFF262F56)
+                : Color(0xFF262F56).withOpacity(.5),
           ),
-        ]);
-  
+        ),
+      ]);
 }
