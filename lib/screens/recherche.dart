@@ -57,6 +57,7 @@ class _RechercheState extends State<Recherche> {
       appBar: AppBar(
         backgroundColor:Color(0xFF035887),
         elevation: 0,
+        automaticallyImplyLeading: false,
         // actions: [
         //   IconButton(
         //       icon: SvgPicture.asset(

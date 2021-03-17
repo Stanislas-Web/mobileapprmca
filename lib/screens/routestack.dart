@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ufm/screens/favoris.dart';
 import 'package:ufm/screens/home.dart';
 import 'package:ufm/screens/profil.dart';
@@ -25,12 +26,24 @@ class _RouteStackState extends State<RouteStack> {
   PageController pageController = PageController();
   bool _tryAgain = false;
   bool connectState = false;
+  SharedPreferences prefs;
+  String theme;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     checkConnection();
+    initial();
+  }
+
+    void initial() async {
+
+    setState(() {
+      theme = prefs.getString('theme');
+    });
+    prefs ??= await SharedPreferences.getInstance();
+    await prefs.setString('theme', theme);
   }
 
   Future checkConnection() async {

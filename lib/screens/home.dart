@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:toast/toast.dart';
 import 'package:ufm/components/Header.dart';
@@ -206,9 +207,9 @@ class _MyHomePageState extends State<MyHomePage>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Header(data: _imgs),
-                // SizedBox(
-                //   height: getProportionateScreenWidth(10),
-                // ),
+                SizedBox(
+                  height: getProportionateScreenWidth(10),
+                ),
                 Expanded(
                   child: SingleChildScrollView(
                     controller: _controller,
@@ -224,33 +225,33 @@ class _MyHomePageState extends State<MyHomePage>
                   ),
                 ),
               ],
-            )
+            ):
           // )
-          : Container(
-              height: MediaQuery.of(context).size.height,
-              color: Color(0xFFFFFFFF),
-              child: Animator<double>(
-                duration: Duration(seconds: 1),
-                tween: Tween<double>(begin: 0, end: 150),
-                cycles: 0,
-                builder: (context, animatorState, child) => Center(
-                  child: Container(
-                    margin: EdgeInsets.symmetric(vertical: 10),
-                    height: animatorState.value,
-                    width: animatorState.value,
-                    child: Image(
-                      image: AssetImage('assets/images/logo1.png'),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-      // Center(
-      //     child: SpinKitRipple(
-      //       color: Color(0xFFFFEB3B),
-      //       size: 100,
-      //     ),
-      //   ),
+          // : Container(
+          //     height: MediaQuery.of(context).size.height,
+          //     color: Color(0xFFFFFFFF),
+          //     child: Animator<double>(
+          //       duration: Duration(seconds: 1),
+          //       tween: Tween<double>(begin: 0, end: 150),
+          //       cycles: 0,
+          //       builder: (context, animatorState, child) => Center(
+          //         child: Container(
+          //           margin: EdgeInsets.symmetric(vertical: 10),
+          //           height: animatorState.value,
+          //           width: animatorState.value,
+          //           child: Image(
+          //             image: AssetImage('assets/images/logo1.png'),
+          //           ),
+          //         ),
+          //       ),
+          //     ),
+          //   ),
+      Center(
+          child: SpinKitRipple(
+            color: Color(0xFF035887),
+            size: 100,
+          ),
+        ),
     );
   }
 }
@@ -260,58 +261,55 @@ Widget drawerMenu(context, size, _launchURL, isAuth, userData, googleAuth,
   return new Drawer(
     child: new ListView(
       children: <Widget>[
-        // Container(
-        //   margin: EdgeInsets.only(
-        //     left: getProportionateScreenWidth(20),
-        //     bottom: getProportionateScreenWidth(20),
-        //   ),
-        //   height: getProportionateScreenWidth(150),
-        //   decoration: BoxDecoration(
-        //       color: Color(0xFFFFEB3B),
-        //       borderRadius: BorderRadius.only(
-        //         bottomLeft: Radius.circular(
-        //           getProportionateScreenWidth(30),
-        //         ),
-        //       )),
-        //   child: Column(
-        //     children: [
-        //       isAuth == false
-        //           ? Container()
-        //           : Container(
-        //               child: Padding(
-        //                 padding: EdgeInsets.symmetric(
-        //                     horizontal: getProportionateScreenWidth(20),
-        //                     vertical: 30),
-        //                 child: Container(
-        //                   child: Row(
-        //                     children: [
-        //                       CircleAvatar(
-        //                         backgroundImage: CachedNetworkImageProvider(
-        //                             userData.photoURL),
-        //                         radius: 40,
-        //                       ),
-        //                       Padding(
-        //                         padding: EdgeInsets.only(
-        //                           left: getProportionateScreenWidth(10),
-        //                         ),
-        //                       ),
-        //                       Text(
-        //                         userData.displayName,
-        //                         style: TextStyle(
-        //                           color: Color(0xFF000000),
-        //                           fontWeight: FontWeight.w300,
-        //                         ),
-        //                       )
-        //                     ],
-        //                   ),
-        //                 ),
-        //               ),
-        //             ),
-        //     ],
-        //   ),
-        // ),
-        SizedBox(
-          height: getProportionateScreenHeight(40),
+        Container(
+          margin: EdgeInsets.only(
+            left: getProportionateScreenWidth(20),
+            bottom: getProportionateScreenWidth(20),
+          ),
+          height: getProportionateScreenWidth(150),
+          decoration: BoxDecoration(
+              color: Color(0xFFFFEB3B),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(
+                  getProportionateScreenWidth(30),
+                ),
+              )),
+          child: Column(
+            children: [
+              isAuth == false
+                  ? Container()
+                  : Container(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: getProportionateScreenWidth(20),
+                            vertical: 30),
+                        child: Container(
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                backgroundImage: CachedNetworkImageProvider(
+                                    userData.photoURL),
+                                radius: 40,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  left: getProportionateScreenWidth(10),
+                                ),
+                              ),
+                              Text(
+                                userData.displayName,
+                                style: TextStyle(
+                                  color: Color(0xFF000000),
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+            ],
+          ),
         ),
         Container(
           margin: EdgeInsets.only(

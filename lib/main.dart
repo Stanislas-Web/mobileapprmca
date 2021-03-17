@@ -6,7 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ufm/provider/download_provider.dart';
 import 'package:ufm/screens/detailpodcast.dart';
-import 'package:ufm/screens/routestack.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           // visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         routes: Routes().routes,
-        initialRoute: '/stack',
+        initialRoute: '/splash',
       ),
     );
   }
