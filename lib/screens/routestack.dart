@@ -94,7 +94,7 @@ class _RouteStackState extends State<RouteStack> {
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
             floatingActionButton: FloatingActionButton(
-              backgroundColor: Color(0xFF035887),
+              backgroundColor: Color(0xFF0083CC),
               // child: const Icon(Icons.add),
               child: Player(),
               onPressed: () {
@@ -106,7 +106,7 @@ class _RouteStackState extends State<RouteStack> {
                   topLeft: Radius.circular(50.0),
                   topRight: Radius.circular(50.0)),
               child: BottomAppBar(
-                color: Color(0xFF035887),
+                color: Color(0xFF0083CC),
                 shape: CircularNotchedRectangle(),
                 notchMargin: 4.0,
                 child: Row(
@@ -205,7 +205,7 @@ class _RouteStackState extends State<RouteStack> {
                 backgroundColor: Colors.white,
                 body: Center(
                   child: SpinKitRipple(
-                    color: Color(0xFF035887),
+                    color: Color(0xFF0083CC),
                     size: 100,
                   ),
                 ),
@@ -257,7 +257,9 @@ class _RouteStackState extends State<RouteStack> {
                                   borderRadius: BorderRadius.circular(
                                     getProportionateScreenWidth(30),
                                   ),
-                                  border: Border.all(color: Colors.yellow)),
+                                  border: Border.all(
+                                    color: Color(0xFF0083CC),
+                                  )),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,

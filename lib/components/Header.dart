@@ -38,7 +38,7 @@ class Header extends StatelessWidget {
                           animationCurve: Curves.fastOutSlowIn,
                           animationDuration: Duration(milliseconds: 500),
                           dotSize: 5.0,
-                          dotIncreasedColor: Color(0xFF035887),
+                          dotIncreasedColor: Color(0xFF0083CC),
                           dotBgColor: Colors.transparent,
                           dotPosition: DotPosition.bottomLeft,
                           dotHorizontalPadding: 25,

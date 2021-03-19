@@ -7,7 +7,6 @@ import 'package:flutter/widgets.dart';
 import 'package:ufm/provider/download_provider.dart';
 import 'package:ufm/screens/detailpodcast.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -41,7 +40,8 @@ class MyApp extends StatelessWidget {
 
 class MyColors {
   static const MaterialColor navy = MaterialColor(
-    0xFF039BE5,
+    // 0xFF039BE5,
+    0xFF0083CC,
     // 0xFFF2E307,
     <int, Color>{
       50: Color(0xFFE1F5FE),

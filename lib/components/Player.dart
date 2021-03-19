@@ -127,8 +127,18 @@ class _PlayerState extends State<Player> {
             // }
           },
           child: Padding(
-            padding: EdgeInsets.only(top:8,left: 5,right: 5,bottom: 5),
-            child: check?Icon(Icons.play_arrow_rounded ,size: 40,color: Colors.white,): Icon(Icons.pause,size: 40,color: Colors.white,),
+            padding: EdgeInsets.only(top: 8, left: 5, right: 5, bottom: 5),
+            child: check
+                ? Icon(
+                    Icons.play_arrow_rounded,
+                    size: 40,
+                    color: Colors.white,
+                  )
+                : Icon(
+                    Icons.pause,
+                    size: 40,
+                    color: Colors.white,
+                  ),
             // padding: EdgeInsets.all(2),
             // child: SvgPicture.asset(
             //   check

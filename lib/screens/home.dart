@@ -165,7 +165,7 @@ class _MyHomePageState extends State<MyHomePage>
       // drawerEdgeDragWidth: 0,
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Color(0xFF035887),
+        backgroundColor: Color(0xFF0083CC),
         elevation: 0,
         automaticallyImplyLeading: false,
         actions: [
