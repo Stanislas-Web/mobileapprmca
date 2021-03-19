@@ -264,6 +264,7 @@ class _MusicAppState extends State<MusicApp>
     // Appbar
     AppBar appbar = AppBar(
       elevation: 0,
+      backgroundColor: Color(0xFF035887),
       centerTitle: true,
       title: Text(widget.nom),
       leading: IconButton(
@@ -271,6 +272,7 @@ class _MusicAppState extends State<MusicApp>
             'assets/icons/back.svg',
             height: 15,
             width: 15,
+            color: Colors.white,
           ),
           onPressed: () {
             Navigator.pop(context);
@@ -430,7 +432,7 @@ class _MusicAppState extends State<MusicApp>
                                     IconButton(
                                       iconSize: 25,
                                       color: _favoriteState
-                                          ? Color(0xFFFFEB3B)
+                                          ? Color(0xFF035887)
                                           : Color(0xff342844),
                                       icon: Icon(_favoriteState
                                           ? Icons.favorite
@@ -534,12 +536,13 @@ class _MusicAppState extends State<MusicApp>
                                       height: 50,
                                       child: FloatingActionButton(
                                         heroTag: "btn1",
-                                        backgroundColor: Color(0xFFFFEB3B),
+                                        backgroundColor: Color(0xFF035887),
                                         child: Icon(
                                           // _animated
                                           playing == true
                                               ? Icons.pause
                                               : Icons.play_arrow,
+                                          color: Colors.white,
                                           size: 45,
                                         ),
                                         onPressed: () {

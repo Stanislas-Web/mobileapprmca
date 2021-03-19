@@ -165,7 +165,7 @@ class _MyHomePageState extends State<MyHomePage>
       // drawerEdgeDragWidth: 0,
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor:Color(0xFF035887),
+        backgroundColor: Color(0xFF035887),
         elevation: 0,
         automaticallyImplyLeading: false,
         actions: [
@@ -183,33 +183,13 @@ class _MyHomePageState extends State<MyHomePage>
               }),
         ],
       ),
-      // floatingActionButton: positionIcon
-      //     ? null
-      //     : FloatingActionButton.extended(
-      //         onPressed: () {
-      //           // Add your onPressed code here!
-      //         },
-      //         label: Text('Radio Urbain FM'),
-      //         icon: Icon(Icons.play_circle_filled),
-      //         backgroundColor: Color(0xFFFFEB3B),
-      //       ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
-      // drawer: Drawer(),
       drawer: drawerMenu(context, size, _launchURL, isAuth, userData,
           googleAuth, deconnect, facebookAuth),
       body: _isLoading
-          ?
-          // SingleChildScrollView(
-          //     controller: _controller,
-          //     physics: ScrollPhysics(),
-          //     child:
-          Column(
+          ? Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Header(data: _imgs),
-                SizedBox(
-                  height: getProportionateScreenWidth(10),
-                ),
                 Expanded(
                   child: SingleChildScrollView(
                     controller: _controller,
@@ -218,40 +198,19 @@ class _MyHomePageState extends State<MyHomePage>
                       children: [
                         RecentPodcast(data: podcast),
                         Emission(data: data),
-                        // Video(),
                         VideoHome(),
                       ],
                     ),
                   ),
                 ),
               ],
-            ):
-          // )
-          // : Container(
-          //     height: MediaQuery.of(context).size.height,
-          //     color: Color(0xFFFFFFFF),
-          //     child: Animator<double>(
-          //       duration: Duration(seconds: 1),
-          //       tween: Tween<double>(begin: 0, end: 150),
-          //       cycles: 0,
-          //       builder: (context, animatorState, child) => Center(
-          //         child: Container(
-          //           margin: EdgeInsets.symmetric(vertical: 10),
-          //           height: animatorState.value,
-          //           width: animatorState.value,
-          //           child: Image(
-          //             image: AssetImage('assets/images/logo1.png'),
-          //           ),
-          //         ),
-          //       ),
-          //     ),
-          //   ),
-      Center(
-          child: SpinKitRipple(
-            color: Color(0xFF035887),
-            size: 100,
-          ),
-        ),
+            )
+          : Center(
+              child: SpinKitRipple(
+                color: Color(0xFF035887),
+                size: 100,
+              ),
+            ),
     );
   }
 }
@@ -261,55 +220,8 @@ Widget drawerMenu(context, size, _launchURL, isAuth, userData, googleAuth,
   return new Drawer(
     child: new ListView(
       children: <Widget>[
-        Container(
-          margin: EdgeInsets.only(
-            left: getProportionateScreenWidth(20),
-            bottom: getProportionateScreenWidth(20),
-          ),
-          height: getProportionateScreenWidth(150),
-          decoration: BoxDecoration(
-              color: Color(0xFFFFEB3B),
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(
-                  getProportionateScreenWidth(30),
-                ),
-              )),
-          child: Column(
-            children: [
-              isAuth == false
-                  ? Container()
-                  : Container(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: getProportionateScreenWidth(20),
-                            vertical: 30),
-                        child: Container(
-                          child: Row(
-                            children: [
-                              CircleAvatar(
-                                backgroundImage: CachedNetworkImageProvider(
-                                    userData.photoURL),
-                                radius: 40,
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  left: getProportionateScreenWidth(10),
-                                ),
-                              ),
-                              Text(
-                                userData.displayName,
-                                style: TextStyle(
-                                  color: Color(0xFF000000),
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-            ],
-          ),
+        SizedBox(
+          height: getProportionateScreenHeight(20),
         ),
         Container(
           margin: EdgeInsets.only(
@@ -343,7 +255,7 @@ Widget drawerMenu(context, size, _launchURL, isAuth, userData, googleAuth,
                   ),
                 ),
                 onTap: () async {
-                  const url = 'http://u947.fm/';
+                  const url = 'https://rmcatv.com/';
                   await _launchURL(url);
                 },
               ),
@@ -378,7 +290,7 @@ Widget drawerMenu(context, size, _launchURL, isAuth, userData, googleAuth,
                   ),
                 ),
                 onTap: () async {
-                  const url = 'https://web.facebook.com/947UFM/?_rdc=1&_rdr';
+                  const url = 'https://web.facebook.com/rmcatv';
                   await _launchURL(url);
                 },
               ),

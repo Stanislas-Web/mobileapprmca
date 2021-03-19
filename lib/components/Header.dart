@@ -16,7 +16,7 @@ class Header extends StatelessWidget {
     return Column(
       children: <Widget>[
         Container(
-          height: size.height * 0.4,
+          height: size.height * 0.4 - 10,
           child: Stack(
             children: [
               // CarouselSlide(data: data),
@@ -27,7 +27,7 @@ class Header extends StatelessWidget {
                 ),
                 // child: Expanded(
                 child: Container(
-                  height: size.height * 0.4 - 27,
+                  height: size.height * 0.4 - 26,
                   width: size.width,
                   child: Column(
                     children: [
@@ -38,10 +38,9 @@ class Header extends StatelessWidget {
                           animationCurve: Curves.fastOutSlowIn,
                           animationDuration: Duration(milliseconds: 500),
                           dotSize: 5.0,
-                          dotIncreasedColor:Color(0xFF035887),
+                          dotIncreasedColor: Color(0xFF035887),
                           dotBgColor: Colors.transparent,
                           dotPosition: DotPosition.bottomLeft,
-                          // dotVerticalPadding: 20.0,
                           dotHorizontalPadding: 25,
                           dotSpacing: 20,
                           showIndicator: true,

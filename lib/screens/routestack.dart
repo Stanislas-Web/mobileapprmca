@@ -11,8 +11,6 @@ import 'package:toast/toast.dart';
 import 'package:ufm/size_config.dart';
 import 'package:ufm/components/Player.dart';
 
-// import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
-
 class RouteStack extends StatefulWidget {
   RouteStack({Key key, this.label}) : super(key: key);
   final String label;
@@ -65,9 +63,6 @@ class _RouteStackState extends State<RouteStack> {
       setState(() {
         connectState = false;
         _tryAgain = false;
-        // setState(() {
-        //   _tryAgain = false;
-        // });
       });
     }
   }
@@ -205,14 +200,6 @@ class _RouteStackState extends State<RouteStack> {
               ),
             ),
           )
-        //             floatingActionButton: FloatingActionButton(
-        //   child: Container(alignment: Alignment.center,
-        //   child: Player(),)
-        // ),
-
-        // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        //       bottomNavigationBar:
-        //           bottomNavigationBar(_selectedIndex, _onItemTapped))
         : _tryAgain == true
             ? Scaffold(
                 backgroundColor: Colors.white,
@@ -293,64 +280,4 @@ class _RouteStackState extends State<RouteStack> {
                 ),
               );
   }
-}
-
-Widget bottomNavigationBar(_selectedIndex, _onItemTapped) {
-  return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      backgroundColor: Color(0xFF0083CC),
-      selectedItemColor: Color(0xFFFFFFFF),
-      unselectedItemColor: Color(0xFF262F56).withOpacity(.5),
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      currentIndex: _selectedIndex,
-      onTap: _onItemTapped,
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          title: new Text('Home', style: TextStyle(color: Color(0xFF262F56))),
-          icon: SvgPicture.asset(
-            'assets/icons/home.svg',
-            height: _selectedIndex == 0 ? 20.0 : 15,
-            width: _selectedIndex == 0 ? 20.0 : 15,
-            color: _selectedIndex == 0
-                ? Color(0xFF262F56)
-                : Color(0xFF262F56).withOpacity(.5),
-          ),
-        ),
-        BottomNavigationBarItem(
-          title: new Text('Profil', style: TextStyle(color: Color(0xFF262F56))),
-          icon: SvgPicture.asset(
-            'assets/icons/profil.svg',
-            height: _selectedIndex == 1 ? 20.0 : 15,
-            width: _selectedIndex == 1 ? 20.0 : 15,
-            color: _selectedIndex == 1
-                ? Color(0xFF262F56)
-                : Color(0xFF262F56).withOpacity(.5),
-          ),
-        ),
-        BottomNavigationBarItem(
-          title:
-              new Text('Recherche', style: TextStyle(color: Color(0xFF262F56))),
-          icon: SvgPicture.asset(
-            'assets/icons/recherche.svg',
-            height: _selectedIndex == 2 ? 20.0 : 15,
-            width: _selectedIndex == 2 ? 20.0 : 15,
-            color: _selectedIndex == 2
-                ? Color(0xFF262F56)
-                : Color(0xFF262F56).withOpacity(.5),
-          ),
-        ),
-        BottomNavigationBarItem(
-          title:
-              new Text('Favoris', style: TextStyle(color: Color(0xFF262F56))),
-          icon: SvgPicture.asset(
-            'assets/icons/heart-icon.svg',
-            height: 2 == 3 ? 20.0 : 15,
-            width: _selectedIndex == 3 ? 20.0 : 15,
-            color: _selectedIndex == 3
-                ? Color(0xFF262F56)
-                : Color(0xFF262F56).withOpacity(.5),
-          ),
-        ),
-      ]);
 }

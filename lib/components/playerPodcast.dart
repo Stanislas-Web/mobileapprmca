@@ -51,29 +51,40 @@ class _PlayerPodcastState extends State<PlayerPodcast> {
     return Column(
       children: <Widget>[
         GestureDetector(
-          onTap: () {
-            pr.show();
-            Future.delayed(const Duration(milliseconds: 2000), () {
-              pr.hide();
-            });
-            setState(() {
-              if (check) {
-                FlutterRadio.playOrPause(url: widget.streamUrl);
-                playingStatus();
-                check = false;
-              } else {
-                check = true;
-                FlutterRadio.playOrPause(url: widget.streamUrl);
-                playingStatus();
-              }
-            });
-          },
-          child: SvgPicture.asset(
-            check ? 'assets/icons/btn-play.svg' : 'assets/icons/btn-pause.svg',
-            height: 60,
-            width: 60,
-          ),
-        ),
+            onTap: () {
+              pr.show();
+              Future.delayed(const Duration(milliseconds: 2000), () {
+                pr.hide();
+              });
+              setState(() {
+                if (check) {
+                  FlutterRadio.playOrPause(url: widget.streamUrl);
+                  playingStatus();
+                  check = false;
+                } else {
+                  check = true;
+                  FlutterRadio.playOrPause(url: widget.streamUrl);
+                  playingStatus();
+                }
+              });
+            },
+            child: check
+                ? Icon(
+                    Icons.play_circle_filled_outlined,
+                    size: 50,
+                    color: Color(0xFF035887),
+                  )
+                : Icon(
+                    Icons.pause_circle_filled_outlined,
+                    size: 50,
+                    color: Color(0xFF035887),
+                  )
+            // child: SvgPicture.asset(
+            //   check ? 'assets/icons/btn-play.svg' : 'assets/icons/btn-pause.svg',
+            //   height: 60,
+            //   width: 60,
+            // ),
+            ),
       ],
     );
   }
