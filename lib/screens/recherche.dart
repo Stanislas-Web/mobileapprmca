@@ -53,7 +53,6 @@ class _RechercheState extends State<Recherche> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Color(0xFF0083CC),
         elevation: 0,
@@ -135,19 +134,18 @@ Widget inputSearch(
     padding: EdgeInsets.only(left: 30),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(16.0),
-      color: Colors.grey[200],
+      color: Theme.of(context).scaffoldBackgroundColor,
     ),
     child: TextField(
       controller: myController,
       decoration: InputDecoration(
         hintText: "podcasts",
-        hintStyle: TextStyle(color: Colors.black.withOpacity(.5)),
+        // hintStyle: TextStyle(color: .withOpacity(.5)),
         enabledBorder: InputBorder.none,
         focusedBorder: InputBorder.none,
         suffixIcon: IconButton(
           icon: Icon(
             Icons.search,
-            color: Colors.black,
           ),
           onPressed: () {
             loading = true;

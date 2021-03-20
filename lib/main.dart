@@ -6,6 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ufm/provider/download_provider.dart';
 import 'package:ufm/screens/detailpodcast.dart';
+import 'package:ufm/provider/theme_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,24 +18,47 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (context) => FileDownloaderProvider(),
-          child: MusicApp(),
-        ),
-      ],
-      child: GetMaterialApp(
-        title: 'RMCA',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: MyColors.navy,
-          // visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        routes: Routes().routes,
-        initialRoute: '/splash',
+    return ChangeNotifierProvider(
+      create: (_) => ThemeNotifier(),
+      child: Consumer<ThemeNotifier>(
+        builder: (context, ThemeNotifier notifier, child) {
+          return MultiProvider(
+            providers: [
+              ChangeNotifierProvider(
+                create: (context) => FileDownloaderProvider(),
+                child: MusicApp(),
+              ),
+            ],
+            child: GetMaterialApp(
+              title: 'RMCA',
+              debugShowCheckedModeBanner: false,
+              theme: notifier.darkTheme ? dark : light,
+              routes: Routes().routes,
+              initialRoute: '/splash',
+            ),
+          );
+        },
       ),
     );
+
+    // return MultiProvider(
+    //   providers: [
+    //     ChangeNotifierProvider(
+    //       create: (context) => FileDownloaderProvider(),
+    //       child: MusicApp(),
+    //     ),
+    //   ],
+    //   child: GetMaterialApp(
+    //     title: 'RMCA',
+    //     debugShowCheckedModeBanner: false,
+    //     theme: ThemeData(
+    //       primarySwatch: MyColors.navy,
+    //       // visualDensity: VisualDensity.adaptivePlatformDensity,
+    //     ),
+    //     routes: Routes().routes,
+    //     initialRoute: '/splash',
+    //   ),
+    // );
   }
 }
 

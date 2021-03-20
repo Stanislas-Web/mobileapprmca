@@ -11,6 +11,7 @@ import 'package:ufm/screens/routestack.dart';
 import 'package:ufm/screens/video.dart';
 import 'package:ufm/screens/detailemission.dart';
 import 'package:ufm/screens/splash.dart';
+import 'package:ufm/screens/setting.dart';
 
 class Routes {
   Map<String, WidgetBuilder> routes = {
@@ -26,5 +27,6 @@ class Routes {
     '/detailemission': (context) => DetailEmission(),
     '/musiqueapp': (context) => MusicApp(),
     '/splash': (context) => Splash(),
+    '/setting': (context) => SettingsPage(),
   };
 }

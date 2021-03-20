@@ -264,15 +264,19 @@ class _MusicAppState extends State<MusicApp>
     // Appbar
     AppBar appbar = AppBar(
       elevation: 0,
-      backgroundColor: Color(0xFF035887),
+      backgroundColor: Color(0xFF0083CC),
       centerTitle: true,
-      title: Text(widget.nom),
+      title: Text(
+        widget.nom,
+        style: TextStyle(
+          color: Theme.of(context).scaffoldBackgroundColor,
+        ),
+      ),
       leading: IconButton(
           icon: SvgPicture.asset(
             'assets/icons/back.svg',
             height: 15,
             width: 15,
-            color: Colors.white,
           ),
           onPressed: () {
             Navigator.pop(context);
@@ -282,6 +286,7 @@ class _MusicAppState extends State<MusicApp>
     double appbarHeightSize = appbar.preferredSize.height;
 
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: appbar,
       body: Center(
         child: AnimatedBuilder(
@@ -299,7 +304,7 @@ class _MusicAppState extends State<MusicApp>
                       width: _sequenceAnimation['RoundContainerWidth'].value,
                       height: _sequenceAnimation['RoundContainerHeight'].value,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Theme.of(context).scaffoldBackgroundColor,
                         borderRadius:
                             _sequenceAnimation['RoundContainerBorderRadius']
                                 .value,
@@ -313,12 +318,13 @@ class _MusicAppState extends State<MusicApp>
                     left: ((_sequenceAnimation['AlbumCoverPosition'].value +
                             100) *
                         -0.27),
-                    bottom:
-                        (280 - _sequenceAnimation['AlbumCoverPosition'].value),
+                    bottom: (getProportionateScreenHeight(230) -
+                        _sequenceAnimation['AlbumCoverPosition'].value),
                     child: Column(
                       children: <Widget>[
                         Container(
                           height: (_screenHeight * 0.50 - appbarHeightSize),
+                          color: Theme.of(context).scaffoldBackgroundColor,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
@@ -326,7 +332,7 @@ class _MusicAppState extends State<MusicApp>
                                 image: widget.image,
                                 animated: _animated,
                                 minimized: _minimized,
-                              ),
+                              )
                             ],
                           ),
                         ),
@@ -342,7 +348,8 @@ class _MusicAppState extends State<MusicApp>
                     child: Column(
                       children: <Widget>[
                         Container(
-                          height: (_screenHeight * 0.40),
+                          height: (_screenHeight * 0.43),
+                          color: Theme.of(context).scaffoldBackgroundColor,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
@@ -359,7 +366,6 @@ class _MusicAppState extends State<MusicApp>
                                         fontSize: _sequenceAnimation[
                                                 'SongNameFontSize']
                                             .value,
-                                        color: Color(0xff342844),
                                       ),
                                     ),
                                     SizedBox(height: 7.0),
@@ -395,7 +401,6 @@ class _MusicAppState extends State<MusicApp>
                                     SizedBox(width: 15),
                                     IconButton(
                                       iconSize: 25,
-                                      color: Color(0xff342844),
                                       icon: Icon(Icons.share),
                                       onPressed: () async {
                                         Share.text(widget.description,
@@ -410,7 +415,6 @@ class _MusicAppState extends State<MusicApp>
                                     // ),
                                     IconButton(
                                       iconSize: 25,
-                                      color: Color(0xff342844),
                                       icon: Icon(Icons.file_download),
                                       onPressed: () {
                                         // var nameEmission = widget.nom;
@@ -429,23 +433,23 @@ class _MusicAppState extends State<MusicApp>
                                     //   icon: Icon(Icons.repeat),
                                     //   onPressed: () {},
                                     // ),
-                                    IconButton(
-                                      iconSize: 25,
-                                      color: _favoriteState
-                                          ? Color(0xFF035887)
-                                          : Color(0xff342844),
-                                      icon: Icon(_favoriteState
-                                          ? Icons.favorite
-                                          : Icons.favorite_border),
-                                      onPressed: () {
-                                        print("favoris");
+                                    // IconButton(
+                                    //   iconSize: 25,
+                                    //   color: _favoriteState
+                                    //       ? Color(0xFF035887)
+                                    //       : Color(0xff342844),
+                                    //   icon: Icon(_favoriteState
+                                    //       ? Icons.favorite
+                                    //       : Icons.favorite_border),
+                                    //   onPressed: () {
+                                    //     print("favoris");
 
-                                        setState(() {
-                                          _favoriteState = !_favoriteState;
-                                          createFavorite();
-                                        });
-                                      },
-                                    ),
+                                    //     setState(() {
+                                    //       _favoriteState = !_favoriteState;
+                                    //       createFavorite();
+                                    //     });
+                                    //   },
+                                    // ),
                                     SizedBox(width: 15),
                                   ],
                                 ),
@@ -526,7 +530,6 @@ class _MusicAppState extends State<MusicApp>
                                     // Back Button
                                     IconButton(
                                       icon: Icon(Icons.fast_rewind),
-                                      color: Color(0xff342844),
                                       iconSize: 45,
                                       onPressed: () {},
                                     ),
@@ -600,7 +603,6 @@ class _MusicAppState extends State<MusicApp>
                                     // Next Button
                                     IconButton(
                                       icon: Icon(Icons.fast_forward),
-                                      color: Color(0xff342844),
                                       iconSize: 45,
                                       onPressed: () {},
                                     ),

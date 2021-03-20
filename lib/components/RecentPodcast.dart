@@ -25,7 +25,6 @@ class RecentPodcast extends StatelessWidget {
               Text(
                 "Les plus récents",
                 style: Theme.of(context).textTheme.headline6.copyWith(
-                      color: Colors.black,
                       fontSize: getProportionateScreenWidth(20),
                       fontWeight: FontWeight.bold,
                     ),
@@ -109,7 +108,6 @@ Widget podcastSection(context, _myData) {
                                           .textTheme
                                           .headline6
                                           .copyWith(
-                                            color: Colors.black,
                                             fontSize:
                                                 getProportionateScreenWidth(13),
                                             fontWeight: FontWeight.w600,

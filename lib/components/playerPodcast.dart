@@ -72,12 +72,12 @@ class _PlayerPodcastState extends State<PlayerPodcast> {
                 ? Icon(
                     Icons.play_circle_filled_outlined,
                     size: 50,
-                    color: Color(0xFF035887),
+                    color: Color(0xFF0083CC),
                   )
                 : Icon(
                     Icons.pause_circle_filled_outlined,
                     size: 50,
-                    color: Color(0xFF035887),
+                    color: Color(0xFF0083CC),
                   )
             // child: SvgPicture.asset(
             //   check ? 'assets/icons/btn-play.svg' : 'assets/icons/btn-pause.svg',

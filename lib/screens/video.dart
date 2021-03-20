@@ -134,7 +134,6 @@ class _VideoHomeState extends State<VideoHome> {
               Text(
                 "Dernières Vidéos",
                 style: Theme.of(context).textTheme.headline6.copyWith(
-                      color: Colors.black,
                       fontSize: getProportionateScreenWidth(25),
                       fontWeight: FontWeight.bold,
                     ),

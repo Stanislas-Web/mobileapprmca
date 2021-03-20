@@ -24,7 +24,6 @@ class Video extends StatelessWidget {
               Text(
                 "Dernières Vidéos",
                 style: Theme.of(context).textTheme.headline6.copyWith(
-                      color: Colors.black,
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),

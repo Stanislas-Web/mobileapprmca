@@ -132,12 +132,14 @@ class _PlayerState extends State<Player> {
                 ? Icon(
                     Icons.play_arrow_rounded,
                     size: 40,
-                    color: Colors.white,
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    // color: Colors.white,
                   )
                 : Icon(
                     Icons.pause,
                     size: 40,
-                    color: Colors.white,
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    // color: Colors.white,
                   ),
             // padding: EdgeInsets.all(2),
             // child: SvgPicture.asset(

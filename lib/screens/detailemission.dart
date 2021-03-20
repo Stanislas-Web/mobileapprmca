@@ -145,16 +145,14 @@ class _DetailEmissionState extends State<DetailEmission> {
     );
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFF035887),
+        backgroundColor: Color(0xFF0083CC),
         leading: IconButton(
             icon: SvgPicture.asset(
               'assets/icons/back.svg',
               height: 15,
               width: 15,
-              color: Colors.white,
             ),
             onPressed: () {
               Navigator.pop(context);
@@ -182,7 +180,7 @@ class _DetailEmissionState extends State<DetailEmission> {
                   child: Container(
                     height: 30,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Theme.of(context).scaffoldBackgroundColor,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(50),
                         topRight: Radius.circular(50),
@@ -229,7 +227,6 @@ Widget contenuEmissionDetail(
               ? '${widget.description.substring(0, 60)} ...'
               : widget.description['description'],
           style: Theme.of(context).textTheme.headline6.copyWith(
-                color: Colors.black,
                 fontSize: 15,
                 // letterSpacing: 1.0,
                 height: 1.4,
@@ -243,7 +240,6 @@ Widget contenuEmissionDetail(
               Text(
                 "Episodes ",
                 style: Theme.of(context).textTheme.headline6.copyWith(
-                      color: Colors.black,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -297,7 +293,6 @@ Widget contenuPodcast(widget, context, data, downloadFile, progressString) {
                                 ? '${data[index]["description"].substring(0, 30)} ...'
                                 : data[index]["description"],
                             style: TextStyle(
-                              color: Colors.black,
                               fontSize: 11,
                               fontWeight: FontWeight.w500,
                             ),
@@ -307,7 +302,6 @@ Widget contenuPodcast(widget, context, data, downloadFile, progressString) {
                             child: Text(
                               data[index]["createdAt"],
                               style: TextStyle(
-                                color: Colors.black,
                                 fontSize: 10,
                                 fontWeight: FontWeight.w400,
                               ),

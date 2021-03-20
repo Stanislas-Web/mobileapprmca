@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,8 +13,8 @@ import 'package:dio/dio.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:animator/animator.dart';
 import '../size_config.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -46,6 +45,13 @@ class _MyHomePageState extends State<MyHomePage>
     setState(() {
       isAuth = false;
     });
+  }
+
+  changeTheme() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int counter = (prefs.getInt('counter') ?? 0) + 1;
+    print('Pressed $counter times.');
+    await prefs.setInt('counter', counter);
   }
 
   Future checkUser() async {
@@ -126,21 +132,10 @@ class _MyHomePageState extends State<MyHomePage>
       banniere = dataBanniere.data;
       _isLoading = true;
       images.data.forEach((urlBannier) {
-        // _imgs.add(CachedNetworkImage(
-        //   imageUrl: urlBannier['urlBannier'],
-        //   placeholder: (context, url) => CircularProgressIndicator(),
-        //   errorWidget: (context, url, error) => Icon(Icons.error),
-
-        //   // height: 150.0,
-        //   // width: 150.0,
-        // ));
-
         _imgs.add(
           CachedNetworkImage(
             imageUrl: urlBannier['urlBannier'],
             imageBuilder: (context, imageProvider) => Container(
-              // width: 80.0,
-              // height: 80.0,
               decoration: BoxDecoration(
                 image: DecorationImage(image: imageProvider, fit: BoxFit.fill),
               ),
@@ -149,8 +144,6 @@ class _MyHomePageState extends State<MyHomePage>
             errorWidget: (context, url, error) => Icon(Icons.error),
           ),
         );
-        // _imgs.add(NetworkImage(urlBannier['urlBannier']));
-        // _imgs.add(urlBannier["urlBannier"]);
       });
     });
     print(data);
@@ -161,7 +154,7 @@ class _MyHomePageState extends State<MyHomePage>
     Size size = MediaQuery.of(context).size;
     SizeConfig().init(context);
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       // drawerEdgeDragWidth: 0,
       key: _scaffoldKey,
       appBar: AppBar(
@@ -174,7 +167,7 @@ class _MyHomePageState extends State<MyHomePage>
                 'assets/icons/menu.svg',
                 height: getProportionateScreenWidth(15),
                 width: getProportionateScreenWidth(15),
-                color: Colors.white,
+                color: Theme.of(context).scaffoldBackgroundColor,
               ),
               onPressed: () {
                 print("top top");
@@ -243,11 +236,13 @@ Widget drawerMenu(context, size, _launchURL, isAuth, userData, googleAuth,
           child: Column(
             children: [
               ListTile(
-                leading: SvgPicture.asset(
-                  "assets/icons/site.svg",
-                  width: 30,
-                  height: getProportionateScreenWidth(20),
-                ),
+                // leading: SvgPicture.asset(
+                //   "assets/icons/site.svg",
+                //   width: 30,
+                //   height: getProportionateScreenWidth(20),
+                //   color: Theme.of(context).backgroundColor,
+                // ),
+                leading: Icon(Icons.public_outlined),
                 title: new Text(
                   'Site Web',
                   style: TextStyle(
@@ -260,11 +255,12 @@ Widget drawerMenu(context, size, _launchURL, isAuth, userData, googleAuth,
                 },
               ),
               new ListTile(
-                leading: SvgPicture.asset(
-                  "assets/icons/note.svg",
-                  width: getProportionateScreenWidth(20),
-                  height: getProportionateScreenWidth(20),
-                ),
+                // leading: SvgPicture.asset(
+                //   "assets/icons/note.svg",
+                //   width: getProportionateScreenWidth(20),
+                //   height: getProportionateScreenWidth(20),
+                // ),
+                leading: Icon(Icons.create_outlined),
                 title: new Text(
                   "Noter l'application",
                   style: TextStyle(
@@ -278,11 +274,12 @@ Widget drawerMenu(context, size, _launchURL, isAuth, userData, googleAuth,
                 },
               ),
               new ListTile(
-                leading: SvgPicture.asset(
-                  "assets/icons/page.svg",
-                  width: getProportionateScreenWidth(20),
-                  height: getProportionateScreenWidth(20),
-                ),
+                // leading: SvgPicture.asset(
+                //   "assets/icons/page.svg",
+                //   width: getProportionateScreenWidth(20),
+                //   height: getProportionateScreenWidth(20),
+                // ),
+                leading: Icon(Icons.list_alt_rounded),
                 title: new Text(
                   'Notre page facebook',
                   style: TextStyle(
@@ -295,11 +292,12 @@ Widget drawerMenu(context, size, _launchURL, isAuth, userData, googleAuth,
                 },
               ),
               new ListTile(
-                leading: SvgPicture.asset(
-                  "assets/icons/apropos.svg",
-                  width: getProportionateScreenWidth(20),
-                  height: getProportionateScreenWidth(20),
-                ),
+                // leading: SvgPicture.asset(
+                //   "assets/icons/apropos.svg",
+                //   width: getProportionateScreenWidth(20),
+                //   height: getProportionateScreenWidth(20),
+                // ),
+                leading: Icon(Icons.warning_amber_rounded),
                 title: new Text(
                   'A propos',
                   style: TextStyle(

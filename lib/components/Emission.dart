@@ -24,7 +24,6 @@ class Emission extends StatelessWidget {
               Text(
                 "Emissions",
                 style: Theme.of(context).textTheme.headline6.copyWith(
-                      color: Colors.black,
                       fontSize: getProportionateScreenWidth(25),
                       fontWeight: FontWeight.bold,
                     ),
@@ -98,7 +97,6 @@ class Emission extends StatelessWidget {
                                               .textTheme
                                               .headline6
                                               .copyWith(
-                                                color: Colors.black,
                                                 fontSize:
                                                     getProportionateScreenWidth(
                                                         12),

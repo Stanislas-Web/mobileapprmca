@@ -8,6 +8,7 @@ import 'package:ufm/screens/profil.dart';
 import 'package:ufm/screens/recherche.dart';
 import 'dart:io';
 import 'package:toast/toast.dart';
+import 'package:ufm/screens/setting.dart';
 import 'package:ufm/size_config.dart';
 import 'package:ufm/components/Player.dart';
 
@@ -24,7 +25,7 @@ class _RouteStackState extends State<RouteStack> {
   PageController pageController = PageController();
   bool _tryAgain = false;
   bool connectState = false;
-  SharedPreferences prefs;
+  SharedPreferences darkMode;
   String theme;
 
   @override
@@ -32,16 +33,15 @@ class _RouteStackState extends State<RouteStack> {
     // TODO: implement initState
     super.initState();
     checkConnection();
-    initial();
   }
 
-  void initial() async {
-    setState(() {
-      theme = prefs.getString('theme');
-    });
-    prefs ??= await SharedPreferences.getInstance();
-    await prefs.setString('theme', theme);
-  }
+  // void initial() async {
+  //   setState(() {
+  //     theme = prefs.getString('theme');
+  //   });
+  //   prefs ??= await SharedPreferences.getInstance();
+  //   await prefs.setString('theme', theme);
+  // }
 
   Future checkConnection() async {
     try {
@@ -73,7 +73,12 @@ class _RouteStackState extends State<RouteStack> {
     });
   }
 
-  List<Widget> _screens = [MyHomePage(), Recherche(), Profil(), Favoris()];
+  List<Widget> _screens = [
+    MyHomePage(),
+    Recherche(),
+    SettingsPage(),
+    Favoris()
+  ];
 
   void _onItemTapped(int index) {
     pageController.jumpToPage(index);
@@ -84,7 +89,7 @@ class _RouteStackState extends State<RouteStack> {
     SizeConfig().init(context);
     return connectState == true
         ? Scaffold(
-            backgroundColor: Color(0xFFFFFFFF),
+            // backgroundColor: Color(0xFFFFFFFF),
             body: PageView(
               controller: pageController,
               onPageChanged: _onPageChanged,
@@ -129,8 +134,10 @@ class _RouteStackState extends State<RouteStack> {
                               height: _selectedIndex == 0 ? 15.0 : 15,
                               width: _selectedIndex == 0 ? 15.0 : 15,
                               color: _selectedIndex == 0
-                                  ? Color(0xFFFFFFFF)
-                                  : Color(0xFFFFFFFF).withOpacity(.5),
+                                  ? Theme.of(context).scaffoldBackgroundColor
+                                  : Theme.of(context)
+                                      .scaffoldBackgroundColor
+                                      .withOpacity(.5),
                             ),
                           ),
                           _selectedIndex == 0
@@ -142,7 +149,8 @@ class _RouteStackState extends State<RouteStack> {
                                     width: 60,
                                     height: 3,
                                     decoration: BoxDecoration(
-                                      color: Colors.white,
+                                      color: Theme.of(context)
+                                          .scaffoldBackgroundColor,
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                   ),
@@ -170,6 +178,50 @@ class _RouteStackState extends State<RouteStack> {
                               height: _selectedIndex == 0 ? 15.0 : 15,
                               width: _selectedIndex == 0 ? 15.0 : 15,
                               color: _selectedIndex == 1
+                                  ? Theme.of(context).scaffoldBackgroundColor
+                                  : Theme.of(context)
+                                      .scaffoldBackgroundColor
+                                      .withOpacity(.5),
+                            ),
+                          ),
+                          _selectedIndex == 1
+                              ? Positioned(
+                                  bottom: 0,
+                                  left: 0,
+                                  right: 0,
+                                  child: Container(
+                                    width: 60,
+                                    height: 3,
+                                    decoration: BoxDecoration(
+                                      color: Theme.of(context)
+                                          .scaffoldBackgroundColor,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                )
+                              : Container(
+                                  height: 1,
+                                  width: 1,
+                                )
+                        ]),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        _onItemTapped(2);
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: getProportionateScreenWidth(10),
+                            horizontal: getProportionateScreenWidth(30)),
+                        child: Stack(children: [
+                          Padding(
+                            padding: EdgeInsets.all(15),
+                            child: SvgPicture.asset(
+                              'assets/icons/recherche.svg',
+                              height: _selectedIndex == 0 ? 15.0 : 15,
+                              width: _selectedIndex == 0 ? 15.0 : 15,
+                              color: _selectedIndex == 1
                                   ? Color(0xFFFFFFFF)
                                   : Color(0xFFFFFFFF).withOpacity(.5),
                             ),
@@ -183,7 +235,8 @@ class _RouteStackState extends State<RouteStack> {
                                     width: 60,
                                     height: 3,
                                     decoration: BoxDecoration(
-                                      color: Colors.white,
+                                      color: Theme.of(context)
+                                          .scaffoldBackgroundColor,
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                   ),
