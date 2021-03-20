@@ -222,7 +222,7 @@ class _RouteStackState extends State<RouteStack> {
                 ),
               )
             : Scaffold(
-                backgroundColor: Colors.white,
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                 body: Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -239,10 +239,13 @@ class _RouteStackState extends State<RouteStack> {
                           children: [
                             Image(
                                 image: AssetImage(
-                                  'assets/images/pasconnection.png',
+                                  'assets/images/not.png',
                                 ),
-                                width: getProportionateScreenWidth(100),
-                                height: getProportionateScreenWidth(100)),
+                                width: getProportionateScreenWidth(200),
+                                height: getProportionateScreenWidth(200)),
+                            SizedBox(
+                              height: getProportionateScreenHeight(10),
+                            ),
                             Padding(
                               padding: EdgeInsets.symmetric(
                                 horizontal: getProportionateScreenWidth(
@@ -264,13 +267,13 @@ class _RouteStackState extends State<RouteStack> {
                               height: getProportionateScreenWidth(50),
                               width: getProportionateScreenWidth(200),
                               decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(
-                                    getProportionateScreenWidth(30),
-                                  ),
-                                  border: Border.all(
-                                    color: Color(0xFF0083CC),
-                                  )),
+                                borderRadius: BorderRadius.circular(
+                                  getProportionateScreenWidth(30),
+                                ),
+                                border: Border.all(
+                                  color: Color(0xFF0083CC),
+                                ),
+                              ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,

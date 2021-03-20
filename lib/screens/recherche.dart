@@ -27,7 +27,7 @@ class _RechercheState extends State<Recherche> {
     });
     var dio = Dio();
     var response = await dio.get(
-      "https://us-central1-urbainfm-bd5e6.cloudfunctions.net/api/podcastsbyemission/$query",
+      "https://us-central1-rmca-8ac5b.cloudfunctions.net/api/podcastsbyemission/$query",
     );
 
     setState(() {

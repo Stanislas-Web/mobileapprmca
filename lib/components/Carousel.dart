@@ -18,7 +18,7 @@ class _CarouselSlideState extends State<CarouselSlide> {
   Future getHttp() async {
     var dio = Dio();
     var images = await dio.get(
-      "https://us-central1-urbainfm-bd5e6.cloudfunctions.net/api/bannieres",
+      "https://us-central1-rmca-8ac5b.cloudfunctions.net/api/bannieres",
       options: buildCacheOptions(Duration(days: 7)),
     );
     print("image ");

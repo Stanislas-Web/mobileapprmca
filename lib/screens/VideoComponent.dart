@@ -33,12 +33,14 @@ class _VideoScreenState extends State<VideoScreen> {
     return Scaffold(
       backgroundColor: Colors.black.withOpacity(0.5),
       appBar: AppBar(
+        backgroundColor: Color(0xFF0083CC),
         elevation: 0,
         leading: IconButton(
             icon: SvgPicture.asset(
               'assets/icons/back.svg',
               height: getProportionateScreenWidth(15),
               width: getProportionateScreenWidth(15),
+              color: Theme.of(context).scaffoldBackgroundColor,
             ),
             onPressed: () {
               Navigator.pop(context);

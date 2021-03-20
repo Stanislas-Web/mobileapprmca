@@ -73,6 +73,7 @@ class Emission extends StatelessWidget {
                                         ),
                                       ),
                                       child: CachedNetworkImage(
+                                        fit: BoxFit.cover,
                                         imageUrl: data[index]['photo'],
                                         placeholder: (context, url) =>
                                             CircularProgressIndicator(),
@@ -81,7 +82,7 @@ class Emission extends StatelessWidget {
                                         height:
                                             getProportionateScreenWidth(150.0),
                                         width:
-                                            getProportionateScreenWidth(150.0),
+                                            getProportionateScreenWidth(170.0),
                                       ),
                                     ),
                                   ),

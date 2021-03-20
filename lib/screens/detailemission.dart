@@ -76,7 +76,7 @@ class _DetailEmissionState extends State<DetailEmission> {
   Future getHttp() async {
     var dio = Dio();
     var response = await dio.get(
-      "https://us-central1-urbainfm-bd5e6.cloudfunctions.net/api/podcastsbyemission/" +
+      "https://us-central1-rmca-8ac5b.cloudfunctions.net/api/podcastsbyemission/" +
           widget.nom,
       // options: buildCacheOptions(Duration(days: 7)),
     );
