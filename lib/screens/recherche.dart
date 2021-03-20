@@ -240,7 +240,6 @@ Widget searchResult(context, _myData) {
                                     .textTheme
                                     .headline6
                                     .copyWith(
-                                      color: Colors.black,
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,
                                     ),
