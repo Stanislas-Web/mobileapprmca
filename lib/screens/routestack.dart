@@ -206,48 +206,6 @@ class _RouteStackState extends State<RouteStack> {
                         ]),
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        _onItemTapped(2);
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            vertical: getProportionateScreenWidth(10),
-                            horizontal: getProportionateScreenWidth(30)),
-                        child: Stack(children: [
-                          Padding(
-                            padding: EdgeInsets.all(15),
-                            child: SvgPicture.asset(
-                              'assets/icons/recherche.svg',
-                              height: _selectedIndex == 0 ? 15.0 : 15,
-                              width: _selectedIndex == 0 ? 15.0 : 15,
-                              color: _selectedIndex == 1
-                                  ? Color(0xFFFFFFFF)
-                                  : Color(0xFFFFFFFF).withOpacity(.5),
-                            ),
-                          ),
-                          _selectedIndex == 1
-                              ? Positioned(
-                                  bottom: 0,
-                                  left: 0,
-                                  right: 0,
-                                  child: Container(
-                                    width: 60,
-                                    height: 3,
-                                    decoration: BoxDecoration(
-                                      color: Theme.of(context)
-                                          .scaffoldBackgroundColor,
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                )
-                              : Container(
-                                  height: 1,
-                                  width: 1,
-                                )
-                        ]),
-                      ),
-                    ),
                   ],
                 ),
               ),

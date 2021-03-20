@@ -15,6 +15,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../size_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
+import 'package:ufm/provider/theme_provider.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -255,11 +257,6 @@ Widget drawerMenu(context, size, _launchURL, isAuth, userData, googleAuth,
                 },
               ),
               new ListTile(
-                // leading: SvgPicture.asset(
-                //   "assets/icons/note.svg",
-                //   width: getProportionateScreenWidth(20),
-                //   height: getProportionateScreenWidth(20),
-                // ),
                 leading: Icon(Icons.create_outlined),
                 title: new Text(
                   "Noter l'application",
@@ -274,11 +271,6 @@ Widget drawerMenu(context, size, _launchURL, isAuth, userData, googleAuth,
                 },
               ),
               new ListTile(
-                // leading: SvgPicture.asset(
-                //   "assets/icons/page.svg",
-                //   width: getProportionateScreenWidth(20),
-                //   height: getProportionateScreenWidth(20),
-                // ),
                 leading: Icon(Icons.list_alt_rounded),
                 title: new Text(
                   'Notre page facebook',
@@ -292,11 +284,6 @@ Widget drawerMenu(context, size, _launchURL, isAuth, userData, googleAuth,
                 },
               ),
               new ListTile(
-                // leading: SvgPicture.asset(
-                //   "assets/icons/apropos.svg",
-                //   width: getProportionateScreenWidth(20),
-                //   height: getProportionateScreenWidth(20),
-                // ),
                 leading: Icon(Icons.warning_amber_rounded),
                 title: new Text(
                   'A propos',
@@ -307,24 +294,6 @@ Widget drawerMenu(context, size, _launchURL, isAuth, userData, googleAuth,
                 onTap: () {
                   Toast.show(
                       "A propos de l'application bientôt disponible ", context,
-                      duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-                },
-              ),
-              new ListTile(
-                leading: SvgPicture.asset(
-                  "assets/icons/parametre.svg",
-                  width: getProportionateScreenWidth(20),
-                  height: getProportionateScreenWidth(20),
-                ),
-                title: new Text(
-                  'Paramètre',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                onTap: () {
-                  Toast.show(
-                      "Paramètre de l'application bientôt disponible ", context,
                       duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
                 },
               ),
@@ -375,6 +344,21 @@ Widget drawerMenu(context, size, _launchURL, isAuth, userData, googleAuth,
                       ),
                     )
                   : Container(),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: getProportionateScreenWidth(5),
+                ),
+                child: Consumer<ThemeNotifier>(
+                  builder: (context, notifier, child) => SwitchListTile(
+                    title: Text("Dark Mode"),
+                    onChanged: (value) {
+                      notifier.toggleTheme();
+                    },
+                    value: notifier.darkTheme,
+                    activeColor: Colors.white,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
