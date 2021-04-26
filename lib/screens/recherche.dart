@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:dio/dio.dart';
-import 'package:dio_http_cache/dio_http_cache.dart';
+import 'package:flappy_search_bar/flappy_search_bar.dart';
 
 import 'detailpodcast.dart';
 
@@ -101,24 +101,26 @@ Widget searchSection(
     ),
     child: Column(
       children: [
+        // SearchBar(onSearch: null, onItemFound: null),
+
         inputSearch(context, myController, getHttpPodcastByEmission, checkData,
             loading),
-        // checkData
-        //     ? searchResult(context)
-        //     : Center(
-        //         child: SpinKitRipple(
-        //           color: Theme.of(context).primaryColor,
-        //           size: 100,
-        //         ),
-        //       ),
-        loading
-            ? Center(
+        checkData
+            ? searchResult(context, data)
+            : Center(
                 child: SpinKitRipple(
                   color: Theme.of(context).primaryColor,
                   size: 100,
                 ),
-              )
-            : searchResult(context, data),
+              ),
+        // loading
+        //     ? Center(
+        //         child: SpinKitRipple(
+        //           color: Theme.of(context).primaryColor,
+        //           size: 100,
+        //         ),
+        //       )
+        //     : searchResult(context, data),
         // searchResult(context)
       ],
     ),

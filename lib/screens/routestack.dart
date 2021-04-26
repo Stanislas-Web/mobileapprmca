@@ -88,129 +88,133 @@ class _RouteStackState extends State<RouteStack> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return connectState == true
-        ? Scaffold(
-            // backgroundColor: Color(0xFFFFFFFF),
-            body: PageView(
-              controller: pageController,
-              onPageChanged: _onPageChanged,
-              children: _screens,
-              physics: NeverScrollableScrollPhysics(),
-            ),
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.centerDocked,
-            floatingActionButton: FloatingActionButton(
-              backgroundColor: Color(0xFF0083CC),
-              // child: const Icon(Icons.add),
-              child: Player(),
-              onPressed: () {
-                // Overlay.of(context).insert(entry);
-              },
-            ),
-            bottomNavigationBar: ClipRRect(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(50.0),
-                  topRight: Radius.circular(50.0)),
-              child: BottomAppBar(
-                color: Color(0xFF0083CC),
-                shape: CircularNotchedRectangle(),
-                notchMargin: 4.0,
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    GestureDetector(
-                      onTap: () {
-                        _onItemTapped(0);
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            vertical: getProportionateScreenWidth(10),
-                            horizontal: getProportionateScreenWidth(30)),
-                        child: Stack(children: [
-                          Padding(
-                            padding: EdgeInsets.all(15),
-                            child: SvgPicture.asset(
-                              'assets/icons/home.svg',
-                              height: _selectedIndex == 0 ? 15.0 : 15,
-                              width: _selectedIndex == 0 ? 15.0 : 15,
-                              color: _selectedIndex == 0
-                                  ? Theme.of(context).scaffoldBackgroundColor
-                                  : Theme.of(context)
-                                      .scaffoldBackgroundColor
-                                      .withOpacity(.5),
+        ? WillPopScope(
+          onWillPop: () async => false,
+
+                  child: Scaffold(
+              // backgroundColor: Color(0xFFFFFFFF),
+              body: PageView(
+                controller: pageController,
+                onPageChanged: _onPageChanged,
+                children: _screens,
+                physics: NeverScrollableScrollPhysics(),
+              ),
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.centerDocked,
+              floatingActionButton: FloatingActionButton(
+                backgroundColor: Color(0xFF0083CC),
+                // child: const Icon(Icons.add),
+                child: Player(),
+                onPressed: () {
+                  // Overlay.of(context).insert(entry);
+                },
+              ),
+              bottomNavigationBar: ClipRRect(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(50.0),
+                    topRight: Radius.circular(50.0)),
+                child: BottomAppBar(
+                  color: Color(0xFF0083CC),
+                  shape: CircularNotchedRectangle(),
+                  notchMargin: 4.0,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      GestureDetector(
+                        onTap: () {
+                          _onItemTapped(0);
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: getProportionateScreenWidth(10),
+                              horizontal: getProportionateScreenWidth(30)),
+                          child: Stack(children: [
+                            Padding(
+                              padding: EdgeInsets.all(15),
+                              child: SvgPicture.asset(
+                                'assets/icons/home.svg',
+                                height: _selectedIndex == 0 ? 15.0 : 15,
+                                width: _selectedIndex == 0 ? 15.0 : 15,
+                                color: _selectedIndex == 0
+                                    ? Theme.of(context).scaffoldBackgroundColor
+                                    : Theme.of(context)
+                                        .scaffoldBackgroundColor
+                                        .withOpacity(.5),
+                              ),
                             ),
-                          ),
-                          _selectedIndex == 0
-                              ? Positioned(
-                                  bottom: 0,
-                                  left: 0,
-                                  right: 0,
-                                  child: Container(
-                                    width: 60,
-                                    height: 3,
-                                    decoration: BoxDecoration(
-                                      color: Theme.of(context)
-                                          .scaffoldBackgroundColor,
-                                      borderRadius: BorderRadius.circular(10),
+                            _selectedIndex == 0
+                                ? Positioned(
+                                    bottom: 0,
+                                    left: 0,
+                                    right: 0,
+                                    child: Container(
+                                      width: 60,
+                                      height: 3,
+                                      decoration: BoxDecoration(
+                                        color: Theme.of(context)
+                                            .scaffoldBackgroundColor,
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
                                     ),
-                                  ),
-                                )
-                              : Container(
-                                  height: 1,
-                                  width: 1,
-                                )
-                        ]),
+                                  )
+                                : Container(
+                                    height: 1,
+                                    width: 1,
+                                  )
+                          ]),
+                        ),
                       ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        _onItemTapped(1);
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            vertical: getProportionateScreenWidth(10),
-                            horizontal: getProportionateScreenWidth(30)),
-                        child: Stack(children: [
-                          Padding(
-                            padding: EdgeInsets.all(15),
-                            child: SvgPicture.asset(
-                              'assets/icons/recherche.svg',
-                              height: _selectedIndex == 0 ? 15.0 : 15,
-                              width: _selectedIndex == 0 ? 15.0 : 15,
-                              color: _selectedIndex == 1
-                                  ? Theme.of(context).scaffoldBackgroundColor
-                                  : Theme.of(context)
-                                      .scaffoldBackgroundColor
-                                      .withOpacity(.5),
+                      GestureDetector(
+                        onTap: () {
+                          _onItemTapped(1);
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: getProportionateScreenWidth(10),
+                              horizontal: getProportionateScreenWidth(30)),
+                          child: Stack(children: [
+                            Padding(
+                              padding: EdgeInsets.all(15),
+                              child: SvgPicture.asset(
+                                'assets/icons/recherche.svg',
+                                height: _selectedIndex == 0 ? 15.0 : 15,
+                                width: _selectedIndex == 0 ? 15.0 : 15,
+                                color: _selectedIndex == 1
+                                    ? Theme.of(context).scaffoldBackgroundColor
+                                    : Theme.of(context)
+                                        .scaffoldBackgroundColor
+                                        .withOpacity(.5),
+                              ),
                             ),
-                          ),
-                          _selectedIndex == 1
-                              ? Positioned(
-                                  bottom: 0,
-                                  left: 0,
-                                  right: 0,
-                                  child: Container(
-                                    width: 60,
-                                    height: 3,
-                                    decoration: BoxDecoration(
-                                      color: Theme.of(context)
-                                          .scaffoldBackgroundColor,
-                                      borderRadius: BorderRadius.circular(10),
+                            _selectedIndex == 1
+                                ? Positioned(
+                                    bottom: 0,
+                                    left: 0,
+                                    right: 0,
+                                    child: Container(
+                                      width: 60,
+                                      height: 3,
+                                      decoration: BoxDecoration(
+                                        color: Theme.of(context)
+                                            .scaffoldBackgroundColor,
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
                                     ),
-                                  ),
-                                )
-                              : Container(
-                                  height: 1,
-                                  width: 1,
-                                )
-                        ]),
+                                  )
+                                : Container(
+                                    height: 1,
+                                    width: 1,
+                                  )
+                          ]),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
-          )
+        )
         : _tryAgain == true
             ? Scaffold(
                 backgroundColor: Colors.white,

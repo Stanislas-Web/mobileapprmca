@@ -33,7 +33,7 @@ class Header extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Carousel(
-                          boxFit: BoxFit.fill,
+                          boxFit: BoxFit.cover,
                           autoplay: true,
                           animationCurve: Curves.fastOutSlowIn,
                           animationDuration: Duration(milliseconds: 500),
