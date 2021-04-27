@@ -8,6 +8,9 @@ import 'package:ufm/provider/download_provider.dart';
 import 'package:ufm/screens/detailpodcast.dart';
 import 'package:ufm/provider/theme_provider.dart';
 
+// keytool -genkey -v -keystore c:\Users\HP\key.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias key
+
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();

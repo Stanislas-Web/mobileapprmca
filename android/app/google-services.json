@@ -1,79 +1,33 @@
 {
   "project_info": {
-    "project_number": "272583848546",
-    "firebase_url": "https://urbainfm-bd5e6.firebaseio.com",
-    "project_id": "urbainfm-bd5e6",
-    "storage_bucket": "urbainfm-bd5e6.appspot.com"
+    "project_number": "844303074970",
+    "project_id": "rmca-8ac5b",
+    "storage_bucket": "rmca-8ac5b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:272583848546:android:b1d11c4786b9748c96573b",
+        "mobilesdk_app_id": "1:844303074970:android:8bfa0c30c47c1c092e0123",
         "android_client_info": {
-          "package_name": "com.example.ufm"
+          "package_name": "com.rmca.stanislas"
         }
       },
       "oauth_client": [
         {
-          "client_id": "272583848546-95njjr8faes8gfsfjh6788uejeof9fhq.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.ufm",
-            "certificate_hash": "0e9849099aa665e448cce7ae5865570947c7606a"
-          }
-        },
-        {
-          "client_id": "272583848546-0q2r95pkfdk4bsjsevv7ohmrkultpi3n.apps.googleusercontent.com",
+          "client_id": "844303074970-svkk7mfkkqut79n2599v3q45rvlua507.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyABtbxCcGdGuzo1UpGPuYJmmsWf2hx0wZY"
+          "current_key": "AIzaSyB570M8sL3g1bkOHJLymxQJNo8mocsHXpM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "272583848546-0q2r95pkfdk4bsjsevv7ohmrkultpi3n.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:272583848546:android:6d8188ae1d3f041c96573b",
-        "android_client_info": {
-          "package_name": "com.urbainfm.stanislas"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "272583848546-1ftovlrilqj25eoa8ed1bl49pjffs74e.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.urbainfm.stanislas",
-            "certificate_hash": "0e9849099aa665e448cce7ae5865570947c7606a"
-          }
-        },
-        {
-          "client_id": "272583848546-0q2r95pkfdk4bsjsevv7ohmrkultpi3n.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyABtbxCcGdGuzo1UpGPuYJmmsWf2hx0wZY"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "272583848546-0q2r95pkfdk4bsjsevv7ohmrkultpi3n.apps.googleusercontent.com",
+              "client_id": "844303074970-svkk7mfkkqut79n2599v3q45rvlua507.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

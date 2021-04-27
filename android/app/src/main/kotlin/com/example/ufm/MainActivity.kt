@@ -1,4 +1,4 @@
-package com.urbainfm.stanislas
+package com.rmca.stanislas
 
 import io.flutter.embedding.android.FlutterActivity
 
