@@ -79,7 +79,7 @@ Widget podcastSection(context, _myData) {
                             borderRadius: BorderRadius.circular(8.0),
                             child: CachedNetworkImage(
                               imageUrl: _myData[index]['photo'],
-                              fit: BoxFit.fill,
+                              fit: BoxFit.cover,
                               placeholder: (context, url) =>
                                   CircularProgressIndicator(),
                               errorWidget: (context, url, error) =>
